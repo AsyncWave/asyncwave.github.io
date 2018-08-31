@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/main.css">    
     <link rel="stylesheet" href="css/responsive.css">
-
+ 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
 
   </head>
   <body>
@@ -661,28 +661,39 @@
     }
     </style>
     <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
     <script>
-    function initMap() {
-        var myLatLng = {lat: 6.796387, lng: 79.900855};
-        var icon = "img/pin.png";
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
-            center: myLatLng,
-            
-        });
 
-        var marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map,
-            title: 'ConstructionLK Head Quaters',
-            icon: icon,
-            animation: google.maps.Animation.BOUNCE
-        });
-    }
+    // function initMap() {
+    //     var myLatLng = {lat: 6.796387, lng: 79.900855};
+    //     var icon = "img/pin.png";
+    //     var map = new google.maps.Map(document.getElementById('map'), {
+    //         zoom: 15,
+    //         center: myLatLng,
+            
+    //     });
+
+    //     var marker = new google.maps.Marker({
+    //         position: myLatLng,
+    //         map: map,
+    //         title: 'ConstructionLK Head Quaters',
+    //         icon: icon,
+    //         animation: google.maps.Animation.BOUNCE
+    //     });
+    // }
+    var map = L.map('map').setView([6.796387, 79.900855], 16);
+
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
+
+	L.marker([6.796387, 79.900855]).addTo(map)
+	    .bindPopup('AsyncWave Systems.<br> Based on university of Moratuwa.')
+	    .openPopup();
     </script>
-    <script async defer
+<!--     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNAhDrUVY2eAjlZHN_P1C1msEA_45v-XY&callback=initMap">
-    </script>
+    </script> -->
     <!-- Contact Section End -->
 
     <!-- Footer Section Start -->
