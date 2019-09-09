@@ -1234,3 +1234,8 @@ footer {
 .copyright p a:hover {
   color: #BBDB22;
 }
+
+.blue-square {
+  border: 3px solid green;
+  padding: 10px;
+}
